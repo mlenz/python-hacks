@@ -15,18 +15,18 @@ assert set(required).issubset(set(letters))
 matches = []
 
 for word in words.readlines():
-	word = word.rstrip('\n').lower()
-	cword = sorted(word)
-	w, v, r = 0, 0, 0
-	while v < len(letters) and w < len(cword):
-		if letters[v] == cword[w]:
-			if r < len(required) and required[r] == cword[w]:
-				r = r + 1
-			w = w + 1
-		v = v + 1
-	if w == len(cword) and len(word) >= min_length and r == len(required):
-		matches.append(word)
+    word = word.rstrip('\n').lower()
+    cword = sorted(word)
+    w, v, r = 0, 0, 0
+    while v < len(letters) and w < len(cword):
+        if letters[v] == cword[w]:
+            if r < len(required) and required[r] == cword[w]:
+                r = r + 1
+            w = w + 1
+        v = v + 1
+    if w == len(cword) and len(word) >= min_length and r == len(required):
+        matches.append(word)
 
 matches.sort(key=lambda s:len(s))
 for match in matches:
-	print match
+    print match
